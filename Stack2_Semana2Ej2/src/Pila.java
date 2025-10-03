@@ -33,10 +33,26 @@ public class Pila {
                 }
             }
 
+            if (codigo.charAt(i) == '{') {
+                pila.push(codigo.charAt(i));
+            } else {
+                if (codigo.charAt(i) == '}') {
+                    if(this.pop() != '{') {}
+                }
+            }
+
+            if (codigo.charAt(i) == '[') {
+                pila.push(codigo.charAt(i));
+            } else {
+                if (codigo.charAt(i) == ']') {
+                    if(this.pop() != '[') {
+                        return false;
+                    }
+                }
+            }
         }
         if(esVacia())
             return true;
         return false;
     }
-
 }
