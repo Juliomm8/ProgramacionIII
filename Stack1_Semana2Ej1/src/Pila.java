@@ -1,8 +1,12 @@
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class Pila {
 
     private Stack<Publicacion> pila;
+    private Set<String> codigosEnPila = new HashSet<>();
+
 
     public Pila(){
         pila = new Stack<Publicacion>();
@@ -27,6 +31,27 @@ public class Pila {
             throw new Exception("Pila vacía");
         return pila.peek();
     }
+
+    // Validar que el código no esté repetido
+    public boolean numeroValido(int codigo) {
+        for (Publicacion p : pila) {
+            if (p.getCodigo() == codigo) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean push(Publicacion obj, int codigo) {
+        if (codigosEnPila.contains(obj.getCodigo())){
+            return false;
+        } else {
+            pila.push(obj);
+            codigosEnPila.add(obj.getCodigo());
+            return true;
+        }
+    }
+
 
     @Override
     public String toString() {
