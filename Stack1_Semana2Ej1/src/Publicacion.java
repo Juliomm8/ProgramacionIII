@@ -3,7 +3,6 @@ public class Publicacion {
     private String titulo;
     private String mensaje;
 
-
     public Publicacion(int codigo, String titulo, String mensaje) {
         this.codigo = codigo;
         this.titulo = titulo;
@@ -36,9 +35,8 @@ public class Publicacion {
 
     @Override
     public String toString() {
-        return "Publicacion{" +
-                "código=" + codigo +
-                ", título='" + titulo +
-                ", mensaje='" + mensaje + "\n";
+        return "Código = " + codigo +
+                ", Título = " + titulo +
+                ", Mensaje = " + mensaje + "\n";
     }
 }

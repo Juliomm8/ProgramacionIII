@@ -37,12 +37,11 @@ public class Pila {
         return false;
     }
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i=pila.size()-1; i>=0; i--) {
-            sb.append(pila.get(i).toString());
+            sb.append(i + 1).append(". ").append(pila.get(i).toString());
         }
         return "Pila:\n" + sb.toString();
     }
