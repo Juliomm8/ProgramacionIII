@@ -10,6 +10,8 @@ public class Ventana {
     private JButton btnRegistrar;
     private JTextArea txtListar;
     private JButton btnBorrar;
+    private JButton btnMostrarUltimo;
+    private JLabel lblMostrarUltimo;
 
     Pila pila = new Pila();
 
@@ -46,6 +48,18 @@ public class Ventana {
                     txtListar.setText(pila.toString());
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al eliminar el elemento: " + ex.getMessage());
+                }
+            }
+        });
+
+        btnMostrarUltimo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Publicacion ultimo = pila.peek();
+                    lblMostrarUltimo.setText("Último elemento:\n" + ultimo.toString());
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al mostrar el último elemento: " + ex.getMessage());
                 }
             }
         });
