@@ -9,7 +9,8 @@ public class Ventana {
     private JTextArea txtMensaje;
     private JButton btnRegistrar;
     private JTextArea txtListar;
-    
+    private JButton btnBorrar;
+
     Pila pila = new Pila();
 
     public Ventana() {
@@ -36,6 +37,18 @@ public class Ventana {
             }
         });
 
+        btnBorrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Publicacion eliminado = pila.pop();
+                    JOptionPane.showMessageDialog(null, "Elemento eliminado:\n" + eliminado.toString());
+                    txtListar.setText(pila.toString());
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al eliminar el elemento: " + ex.getMessage());
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
