@@ -16,16 +16,25 @@ public class Ventana {
         btnRegistrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int codigo = Integer.parseInt(txtCodigo.getText());                
-                String titulo = txtTitulo.getText();
-                String mensaje = txtMensaje.getText();
-                Publicacion p = new Publicacion(codigo, titulo, mensaje);
-                txtListar.append(p.toString());
-                pila.push(p);
-                txtListar.setText(pila.toString());
+                try {
+                    int codigo = Integer.parseInt(txtCodigo.getText());
+                    if (pila.codigoExiste(codigo)) {
+                        JOptionPane.showMessageDialog(null, "El código ya existe en la pila.");
+                        return;
+                    }
+
+                    String titulo = txtTitulo.getText();
+                    String mensaje = txtMensaje.getText();
+
+                    Publicacion p = new Publicacion(codigo, titulo, mensaje);
+                    pila.push(p);
+
+                    txtListar.setText(pila.toString());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "El código debe ser un número válido.");
+                }
             }
         });
-
 
     }
 
