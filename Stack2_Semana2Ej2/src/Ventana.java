@@ -17,9 +17,9 @@ public class Ventana {
                 try {
                     String codigo = txtCodigo.getText();
                     if (pila.balanceo(codigo)){
-                        lblResultado.setText("Codigo balanceado");
+                        lblResultado.setText("Código balanceado \n" + pila);
                     } else {
-                        lblResultado.setText("Codigo no balanceado");
+                        lblResultado.setText("Código no balanceado \n" + pila);
                     }
                 } catch (Exception ex) {
                     lblResultado.setText(ex.getMessage());
