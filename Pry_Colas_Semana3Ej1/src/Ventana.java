@@ -15,6 +15,9 @@ public class Ventana {
     private JButton btnPagar;
     private JButton btnListar;
     private JLabel lblResultado;
+    private JComboBox cboMarcas;
+    private JButton btnBuscar;
+    private JTextArea textArea1;
 
     private ColaAutos cola = new ColaAutos();
 
@@ -70,8 +73,20 @@ public class Ventana {
                 }
             }
         });
-    }
 
+        btnBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                for (Auto auto : cola.cola) {
+                    if (auto.marca.equals(cboMarcas.getSelectedItem().toString())) {
+                        textArea1.append(auto.toString() + "\n");
+                    }
+
+                }
+            }
+        });
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Ventana");
         frame.setContentPane(new Ventana().principal);

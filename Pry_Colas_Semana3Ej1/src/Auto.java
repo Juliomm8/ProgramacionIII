@@ -1,7 +1,7 @@
 public class Auto {
     private String placa;
     private String modelo;
-    private String marca;
+    String marca;
     private int anio;
 
     public Auto(String placa, String modelo, String marca, int anio) {

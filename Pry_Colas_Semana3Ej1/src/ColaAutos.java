@@ -2,11 +2,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ColaAutos {
-    private Queue<Auto> cola;
+    Queue<Auto> cola;
 
     public ColaAutos() {
         cola = new LinkedList<Auto>();
-
     }
 
     public void encolar(Auto auto){
