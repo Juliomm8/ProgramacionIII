@@ -4,37 +4,35 @@ import java.util.List;
 public class Equipo {
     private List<Jugador> listado;
 
-    public Equipo() {
-        listado = new ArrayList<>();
+    public Equipo(){
+        listado=new ArrayList<Jugador>();
     }
 
-    public void agregar(Jugador jugador) {
-        listado.add(jugador);
+    public void agregar(Jugador dato){
+        listado.add(dato);
     }
 
-    public boolean buscarEditar(int id, Jugador jugador) {
-        int i = 0;
-        int s = listado.size();
+    public boolean editar(int id, Jugador dato){
+        int i=0;
+        int s=listado.size()-1;
         int c;
-        while (i <= s) {
+        while(i<=s){
             c=(i+s)/2;
             if(id==listado.get(c).getId()){
-                listado.set(c,jugador);
+                listado.set(c,dato);
                 return true;
-            } else if (id<listado.get(c).getId()) {
-                s = c-1;
-            } else  {
-                i = c+1;
+            }else if(id<listado.get(c).getId()){
+                s=c-1;
+            }else{
+                i=c+1;
             }
         }
         return false;
+
     }
 
-    public List<Jugador> obtenerTodos() {
+    public List<Jugador> todos(){
         return listado;
     }
 
-
-
 }
-

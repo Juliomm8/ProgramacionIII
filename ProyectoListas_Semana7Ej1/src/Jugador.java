@@ -4,6 +4,13 @@ public class Jugador {
     private String posicion;
     private int rendimiento;
 
+    public Jugador(int id, String nombre, String posicion, int rendimiento) {
+        this.id = id;
+        this.nombre = nombre;
+        this.posicion = posicion;
+        this.rendimiento = rendimiento;
+    }
+
     public int getId() {
         return id;
     }
@@ -39,9 +46,9 @@ public class Jugador {
     @Override
     public String toString() {
         return "Jugador " +
-                "id:" + id +
-                ", nombre:'" + nombre +
-                ", posicion:'" + posicion +
-                ", rendimiento:" + rendimiento;
+                "id: " + id +
+                ", nombre: " + nombre +
+                ", posición: " + posicion +
+                ", rendimiento: " + rendimiento;
     }
 }
