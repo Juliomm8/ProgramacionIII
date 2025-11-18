@@ -28,7 +28,6 @@ public class Equipo {
             }
         }
         return false;
-
     }
 
     public List<Jugador> todos(){
@@ -46,7 +45,6 @@ public class Equipo {
     }
 
     // Solo sumar los de ID impar
-
     int sumarRecursivoRendimieto(int i){
         if(i==listado.size()){
             return 0;
