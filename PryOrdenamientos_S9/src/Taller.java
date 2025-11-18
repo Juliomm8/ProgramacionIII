@@ -10,11 +10,11 @@ public class Taller {
     }
 
     public void predefinir(){
-        taller.add(new Motocicleta(1,"Honda",150,10000f,2010));
         taller.add(new Motocicleta(2,"Yamaha",200,15000.24f,2015));
         taller.add(new Motocicleta(3,"Suzuki",250,2999.99f,2020));
-        taller.add(new Motocicleta(4,"Kawasaki",300,25000.99f,2025));
         taller.add(new Motocicleta(5,"Ducati",350,30000.25f,2030));
+        taller.add(new Motocicleta(4,"Kawasaki",300,25000.99f,2025));
+        taller.add(new Motocicleta(1,"Honda",150,10000f,2010));
     }
 
     public void agregar(Motocicleta moto){
@@ -52,7 +52,20 @@ public class Taller {
         }
     }
 
-    
+    // se ordena con el algoritmo de burbuja
+    public void ordenarCilindraje(){
+        Motocicleta aux;
+
+        for(int i = 0; i < taller.size() - 1 ; i++){
+            for (int j = i + 1; j < taller.size(); j++){
+                if(taller.get(i).getCilindraje() < taller.get(j).getCilindraje()){
+                    aux = taller.get(i);
+                    taller.set(i, taller.get(j));
+                    taller.set(j, aux);
+                }
+            }
+        }
+    }
 
     public List<Motocicleta> getTaller() {
         return taller;

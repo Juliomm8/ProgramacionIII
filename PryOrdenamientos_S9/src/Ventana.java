@@ -8,6 +8,7 @@ public class Ventana {
     private JList lstTaller;
     private JButton btnOrdenarID;
     private JButton btnOrdenarPrecio;
+    private JButton btnOrdenarCilindraje;
 
     // Crear el objeto Taller (Se van a poner los datos automáticamente, porque en Taller pusimos el metodo predefinir en el constructor)
     private Taller miTaller = new Taller();
@@ -39,6 +40,13 @@ public class Ventana {
             }
         });
 
+        btnOrdenarCilindraje.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                miTaller.ordenarCilindraje();
+                llenarJList();
+            }
+        });
     }
 
     public static void main(String[] args) {
