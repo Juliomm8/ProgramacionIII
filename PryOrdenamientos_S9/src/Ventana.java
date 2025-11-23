@@ -9,6 +9,7 @@ public class Ventana {
     private JButton btnOrdenarID;
     private JButton btnOrdenarPrecio;
     private JButton btnOrdenarCilindraje;
+    private JButton btnEliminar;
 
     // Crear el objeto Taller (Se van a poner los datos automáticamente, porque en Taller pusimos el metodo predefinir en el constructor)
     private Taller miTaller = new Taller();
@@ -47,7 +48,29 @@ public class Ventana {
                 llenarJList();
             }
         });
+
+        btnEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(lstTaller.getSelectedIndex() != -1){
+                    int index = lstTaller.getSelectedIndex();
+                    //Motocicleta aux = (Motocicleta)lstTaller.getSelectedValue();
+                    /*for(Motocicleta m: miTaller.getTaller()){
+                        if(m.getCodigo() == aux.getCodigo()){
+                            aux = m;
+                        }
+                    }
+                     */
+                    miTaller.getTaller().remove(index);
+                    llenarJList();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Seleccione una motocicleta para eliminar.");
+                }
+            }
+        });
     }
+
+
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Ventana");
