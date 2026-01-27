@@ -16,6 +16,11 @@ public class Ventana {
             public void actionPerformed(ActionEvent e) {
                 arbol.predefinir();
                 txtListar.setText(arbol.inOrden());
+                txtListar.append("\nNiveles");
+                for (Nodo nodo : arbol.niveles()){
+                    txtListar.append("\n" + nodo.getJugador().toString());
+                }
+
             }
         });
     }
